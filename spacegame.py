@@ -71,13 +71,14 @@ class SpaceRocks:
             elif (self.spaceship and event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE):
                 self.spaceship.shoot()
 
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                print("pressed mouse button")
-                print(pos)
-                print(self.replay_rect)
-                if self.replay_rect.collidepoint(pos):
-                    self.new_game()
+            if self.message:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    pos = pygame.mouse.get_pos()
+                    print("pressed mouse button")
+                    print(pos)
+                    print(self.replay_rect)
+                    if self.replay_rect.collidepoint(pos):
+                        self.new_game()
 
 
         is_key_pressed = pygame.key.get_pressed()
